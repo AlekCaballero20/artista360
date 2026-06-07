@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artista 360</title>
+  <meta name="description" content="Aplicativo local para seguimiento integral de proyectos artísticos: canciones, lanzamientos, contenido, eventos, metas, finanzas y brand kit." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <div class="logo-circle" id="appLogo">A360</div>
+      <div>
+        <h1 id="sidebarProjectName">Artista 360</h1>
+        <p id="sidebarTagline">Sistema de crecimiento artístico</p>
+      </div>
+    </div>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <button class="nav-item active" data-view="dashboard">Inicio</button>
+      <button class="nav-item" data-view="songs">Canciones</button>
+      <button class="nav-item" data-view="releases">Lanzamientos</button>
+      <button class="nav-item" data-view="ideas">Ideas</button>
+      <button class="nav-item" data-view="content">Contenido</button>
+      <button class="nav-item" data-view="events">Eventos</button>
+      <button class="nav-item" data-view="contacts">Contactos</button>
+      <button class="nav-item" data-view="goals">Metas</button>
+      <button class="nav-item" data-view="tasks">Checklist</button>
+      <button class="nav-item" data-view="finances">Finanzas</button>
+      <button class="nav-item" data-view="brandkit">Brand Kit</button>
+      <button class="nav-item" data-view="settings">Ajustes</button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="ghost-btn full" id="exportBtn">Exportar backup</button>
+      <label class="ghost-btn full file-label">
+        Importar backup
+        <input type="file" id="importInput" accept="application/json" />
+      </label>
+      <p>Todo queda en este navegador. LocalStorage: ese cajón donde los datos viven hasta que alguien limpia caché con demasiada confianza.</p>
+    </div>
+  </aside>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="icon-btn mobile-only" id="menuBtn" aria-label="Abrir menú">☰</button>
+      <div>
+        <p class="eyebrow" id="viewEyebrow">Panel general</p>
+        <h2 id="viewTitle">Inicio</h2>
+      </div>
+      <div class="topbar-actions">
+        <button class="secondary-btn" id="seedBtn" title="Carga ejemplos editables">Cargar demo</button>
+        <button class="primary-btn" id="quickAddBtn">+ Crear</button>
+      </div>
+    </header>
+
+    <section class="hero-card" id="heroCard">
+      <div>
+        <p class="eyebrow">Proyecto</p>
+        <h3 id="heroProjectName">Artista 360</h3>
+        <p id="heroDescription">Organiza canciones, lanzamientos, contenido, eventos y metas sin sacrificar el alma en una hoja de cálculo con 47 pestañas.</p>
+      </div>
+      <div class="score-widget">
+        <span id="healthScore">0</span>
+        <small>salud artística</small>
+      </div>
+    </section>
+
+    <section id="appView" class="view"></section>
+  </main>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow" id="modalEyebrow">Nuevo registro</p>
+          <h3 id="modalTitle">Crear</h3>
+        </div>
+        <button class="icon-btn" id="closeModalBtn" aria-label="Cerrar">×</button>
+      </div>
+      <form id="recordForm" class="record-form"></form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
